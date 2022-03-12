@@ -9,6 +9,9 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <EnableNETAnalyzers>True</EnableNETAnalyzers>
+    <PackageProjectUrl>https://github.com/Baka632/ArknightsResources</PackageProjectUrl>
+    <Copyright>Copyright (c) 2022 Baka632</Copyright>
+    <PackageTags>Arknights</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
