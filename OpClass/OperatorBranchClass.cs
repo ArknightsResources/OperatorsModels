@@ -3,21 +3,17 @@
 namespace ArknightsResources.Operators.Models
 {
     /// <summary>
-    /// 干员性别
+    /// 表示干员的分支职业
     /// </summary>
-    public enum OperatorGender
+    public enum OperatorBranchClass
     {
         /// <summary>
-        /// 男性
+        /// 近卫-无畏者
         /// </summary>
-        Male,
+        Dreadnought,
         /// <summary>
-        /// 女性
+        /// 术师-秘术师
         /// </summary>
-        Female,
-        /// <summary>
-        /// 断罪
-        /// </summary>
-        Conviction
+        MysticCaster
     }
 }

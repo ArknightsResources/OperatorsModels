@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Xml;
 using System.Xml.Serialization;
 
 namespace ArknightsResources.Operators.Models
@@ -16,21 +17,10 @@ namespace ArknightsResources.Operators.Models
         public string Name { get; set; }
 
         /// <summary>
-        /// 干员生日
-        /// </summary>
-        public OperatorBirthday Birthday { get; set; }
-
-        /// <summary>
         /// 干员星级
         /// </summary>
         [XmlAttribute]
-        public short Star { get; set; }
-
-        /// <summary>
-        /// 干员性别
-        /// </summary>
-        [XmlAttribute]
-        public OperatorGender Gender { get; set; }
+        public byte Star { get; set; }
 
         /// <summary>
         /// 干员立绘图代号
@@ -39,10 +29,33 @@ namespace ArknightsResources.Operators.Models
         public string ImageCodename { get; set; }
 
         /// <summary>
-        /// 干员信息
+        /// 干员性别
         /// </summary>
-        [XmlArrayItem(elementName: "Info")]
-        public OperatorInfo[] Information { get; set; }
+        [XmlAttribute]
+        public OperatorGender Gender { get; set; }
+
+        /// <summary>
+        /// 干员生日
+        /// </summary>
+        public OperatorBirthday Birthday { get; set; }
+
+        /// <summary>
+        /// 干员职业
+        /// </summary>
+        [XmlElement]
+        public OperatorClass Class { get; set; }
+
+        /// <summary>
+        /// 干员的立绘信息
+        /// </summary>
+        [XmlArrayItem(elementName: "Illustration")]
+        public OperatorIllustrationInfo[] Illustrations { get; set; }
+
+        /// <summary>
+        /// 干员的配音信息
+        /// </summary>
+        [XmlArrayItem(elementName: "Voice")]
+        public OperatorVoiceInfo[] Voices { get; set; }
 
         /// <summary>
         /// 干员档案

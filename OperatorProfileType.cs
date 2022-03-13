@@ -1,4 +1,6 @@
-﻿namespace ArknightsResources.Operators.Models
+﻿using System.Xml.Serialization;
+
+namespace ArknightsResources.Operators.Models
 {
     /// <summary>
     /// 干员档案类型的枚举

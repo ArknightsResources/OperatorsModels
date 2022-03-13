@@ -3,29 +3,25 @@
 namespace ArknightsResources.Operators.Models
 {
     /// <summary>
-    /// 干员种类的枚举
+    /// 干员配音的语言种类
     /// </summary>
-    public enum OperatorType
+    public enum OperatorVocalType
     {
         /// <summary>
-        /// 精零
+        /// 中文普通话
         /// </summary>
-        Elite0,
+        ChineseMandarin,
         /// <summary>
-        /// 精一
+        /// 中文方言
         /// </summary>
-        Elite1,
+        ChineseDialect,
         /// <summary>
-        /// 精二
+        /// 日语
         /// </summary>
-        Elite2,
+        Japanese,
         /// <summary>
-        /// 皮肤
+        /// 英语
         /// </summary>
-        Skin,
-        /// <summary>
-        /// 升变
-        /// </summary>
-        Promotion
+        English
     }
 }

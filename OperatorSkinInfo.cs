@@ -1,10 +1,12 @@
 ﻿using System.Xml.Serialization;
+using System;
 
 namespace ArknightsResources.Operators.Models
 {
     /// <summary>
     /// 表示干员皮肤信息的结构
     /// </summary>
+    [Obsolete("请使用新的OperatorIllustrationInfo结构")]
     public struct OperatorSkinInfo
     {
         /// <summary>
