@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -11,12 +11,13 @@
     <EnableNETAnalyzers>True</EnableNETAnalyzers>
     <PackageProjectUrl>https://github.com/Baka632/ArknightsResources</PackageProjectUrl>
     <Copyright>Copyright (c) 2022 Baka632</Copyright>
-    <PackageTags>Arknights</PackageTags>
+    <PackageTags>Arknights;明日方舟</PackageTags>
 	<IncludeSymbols>true</IncludeSymbols>
 	<PublishRepositoryUrl>true</PublishRepositoryUrl>
 	<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 	<EmbedUntrackedSources>true</EmbedUntrackedSources>
 	<PackageIcon>icon.png</PackageIcon>
+	<Description>Provides models about Arknights Operators</Description>
   </PropertyGroup>
 
   <ItemGroup>
