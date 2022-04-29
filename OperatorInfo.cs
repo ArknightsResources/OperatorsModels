@@ -21,7 +21,7 @@ namespace ArknightsResources.Operators.Models
         /// 干员画师
         /// </summary>
         [XmlAttribute]
-        [Obsolete("请使用新的OperatorVocalInfo结构")]
+        [Obsolete("请使用新的OperatorIllustrationInfo结构")]
         public string Illustrator;
 
         /// <summary>
