@@ -175,6 +175,10 @@ namespace ArknightsResources.Operators.Models
         /// 医疗-行医
         /// </summary>
         WanderingMedic,
+        /// <summary>
+        /// 医疗-咒愈师
+        /// </summary>
+        IncantationMedic,
         #endregion
 
         #region Specialist
