@@ -22,6 +22,10 @@ namespace ArknightsResources.Operators.Models
         /// <summary>
         /// 英语
         /// </summary>
-        English
+        English,
+        /// <summary>
+        /// 韩语
+        /// </summary>
+        Korean
     }
 }
