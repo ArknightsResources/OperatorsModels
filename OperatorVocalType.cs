@@ -14,7 +14,7 @@ namespace ArknightsResources.Operators.Models
         /// <summary>
         /// 中文方言
         /// </summary>
-        ChineseDialect,
+        ChineseRegional,
         /// <summary>
         /// 日语
         /// </summary>
