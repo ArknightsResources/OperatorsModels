@@ -12,7 +12,7 @@ namespace ArknightsResources.Operators.Models
         /// </summary>
         /// <param name="month">月份</param>
         /// <param name="day">天</param>
-        public OperatorBirthday(byte month, byte day)
+        public OperatorBirthday(int month, int day)
         {
             Month = month;
             Day = day;
@@ -22,12 +22,12 @@ namespace ArknightsResources.Operators.Models
         /// 生日日期中的月份
         /// </summary>
         [XmlAttribute]
-        public byte Month;
+        public int Month;
 
         /// <summary>
         /// 生日日期中的天
         /// </summary>
         [XmlAttribute]
-        public byte Day;
+        public int Day;
     }
 }
