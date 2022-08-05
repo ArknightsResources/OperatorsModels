@@ -1,4 +1,6 @@
-﻿using System.Xml.Serialization;
+﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Xml.Serialization;
 
 namespace ArknightsResources.Operators.Models
 {
@@ -12,6 +14,13 @@ namespace ArknightsResources.Operators.Models
         /// 包含<see cref="Operator"/>对象的数组
         /// </summary>
         [XmlElement(ElementName = "Operator")]
+        [JsonIgnore]
         public Operator[] OperatorList { get; set; }
+
+        /// <summary>
+        /// 包含<see cref="Operator"/>对象的字典
+        /// </summary>
+        
+        public Dictionary<string, Operator> Operators { get; set; }
     }
 }
