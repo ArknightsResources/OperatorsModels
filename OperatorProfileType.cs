@@ -10,9 +10,13 @@ namespace ArknightsResources.Operators.Models
         /// <summary>
         /// 基础档案
         /// </summary>
-        BasicProfile,
+        BasicInfo,
         /// <summary>
-        /// 客观档案
+        /// 综合体检测试
+        /// </summary>
+        PhysicalExam,
+        /// <summary>
+        /// 客观履历
         /// </summary>
         ObjectiveProfile,
         /// <summary>
@@ -22,23 +26,23 @@ namespace ArknightsResources.Operators.Models
         /// <summary>
         /// 档案资料一
         /// </summary>
-        File1,
+        ArchiveFile1,
         /// <summary>
         /// 档案资料二
         /// </summary>
-        File2,
+        ArchiveFile2,
         /// <summary>
         /// 档案资料三
         /// </summary>
-        File3,
+        ArchiveFile3,
         /// <summary>
         /// 档案资料四
         /// </summary>
-        File4,
+        ArchiveFile4,
         /// <summary>
         /// 晋升记录
         /// </summary>
-        PromotionRecord,
+        PromotionFile,
         /// <summary>
         /// 未知
         /// </summary>

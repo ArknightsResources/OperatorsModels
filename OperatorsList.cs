@@ -20,7 +20,7 @@ namespace ArknightsResources.Operators.Models
         /// <summary>
         /// 包含<see cref="Operator"/>对象的字典
         /// </summary>
-        
+        [XmlIgnore]
         public Dictionary<string, Operator> Operators { get; set; }
     }
 }

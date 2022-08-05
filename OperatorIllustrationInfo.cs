@@ -1,11 +1,12 @@
-﻿using System.Xml.Serialization;
+﻿using System.Text.Json.Serialization;
+using System.Xml.Serialization;
 
 namespace ArknightsResources.Operators.Models
 {
     /// <summary>
     /// 表示干员立绘信息的结构
     /// </summary>
-    public struct OperatorIllustrationInfo
+    public readonly struct OperatorIllustrationInfo
     {
         /// <summary>
         /// 初始化<see cref="OperatorIllustrationInfo"/>结构的新实例
@@ -15,6 +16,7 @@ namespace ArknightsResources.Operators.Models
         /// <param name="imageCodename">立绘图片代号</param>
         /// <param name="type">立绘类型</param>
         /// <param name="illustrator">立绘画师</param>
+        [JsonConstructor]
         public OperatorIllustrationInfo(string illustrationName, string description, string imageCodename,
                                         OperatorType type, string illustrator)
         {
@@ -29,36 +31,36 @@ namespace ArknightsResources.Operators.Models
         /// 立绘名称
         /// </summary>
         [XmlAttribute]
-        public string IllustrationName;
+        public string IllustrationName { get; }
 
         /// <summary>
         /// 立绘描述
         /// </summary>
         [XmlAttribute]
-        public string Description;
+        public string Description { get; }
 
         /// <summary>
         /// 立绘图片代号
         /// </summary>
         [XmlAttribute]
-        public string ImageCodename;
+        public string ImageCodename { get; }
 
         /// <summary>
         /// 此立绘的种类
         /// </summary>
         [XmlAttribute]
-        public OperatorType Type;
+        public OperatorType Type { get; }
 
         /// <summary>
         /// 立绘画师
         /// </summary>
         [XmlAttribute]
-        public string Illustrator;
+        public string Illustrator { get; }
 
         /// <inheritdoc/>
         public override string ToString()
         {
-            return $"{IllustrationName};{Type};{ImageCodename};{Illustrator}";
+            return $"立绘信息:{IllustrationName};{Type};{ImageCodename};{Illustrator}";
         }
     }
 }

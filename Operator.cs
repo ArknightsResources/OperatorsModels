@@ -22,7 +22,7 @@ namespace ArknightsResources.Operators.Models
         /// <param name="illustrations">干员立绘信息</param>
         /// <param name="voices">干员配音信息</param>
         /// <param name="profiles">干员档案信息</param>
-        public Operator(string name, byte star, string imageCodename, OperatorGender gender, OperatorBirthday? birthday, OperatorClass @class, OperatorIllustrationInfo[] illustrations, OperatorVoiceInfo[] voices, OperatorProfile[] profiles)
+        public Operator(string name, int star, string imageCodename, OperatorGender gender, OperatorBirthday? birthday, OperatorClass @class, OperatorIllustrationInfo[] illustrations, OperatorVoiceInfo[] voices, OperatorProfile[] profiles)
         {
             Name = name;
             Star = star;
@@ -36,13 +36,12 @@ namespace ArknightsResources.Operators.Models
         }
 
         /// <summary>
-        /// 
+        /// 构造<see cref="Operator"/>的新实例
         /// </summary>
         public Operator()
         {
-            //For serialize
-        }
 
+        }
 
         /// <summary>
         /// 干员名称
@@ -54,7 +53,7 @@ namespace ArknightsResources.Operators.Models
         /// 干员星级
         /// </summary>
         [XmlAttribute]
-        public byte Star { get; set; }
+        public int Star { get; set; }
 
         /// <summary>
         /// 干员立绘图代号
