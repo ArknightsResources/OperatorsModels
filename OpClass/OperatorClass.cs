@@ -1,5 +1,4 @@
 ﻿using System.Text.Json.Serialization;
-using System.Xml.Serialization;
 
 namespace ArknightsResources.Operators.Models
 {
@@ -23,13 +22,11 @@ namespace ArknightsResources.Operators.Models
         /// <summary>
         /// 干员的主要职业
         /// </summary>
-        [XmlAttribute]
         public OperatorMainClass MainClass { get; }
 
         /// <summary>
         /// 干员的分支职业
         /// </summary>
-        [XmlAttribute]
         public OperatorBranchClass BranchClass { get; }
     }
 }

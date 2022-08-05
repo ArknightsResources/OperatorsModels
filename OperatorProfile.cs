@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
-using System.Xml.Serialization;
 
 namespace ArknightsResources.Operators.Models
 {
@@ -25,14 +24,12 @@ namespace ArknightsResources.Operators.Models
         /// <summary>
         /// 该档案的类型
         /// </summary>
-        [XmlAttribute]
         public OperatorProfileType Type { get; }
 
         /// <summary>
         /// 该档案的内容
         /// </summary>
-        [XmlText]
-        [JsonPropertyName("text")]
+        [JsonPropertyName("Text")]
         public string Profile { get; }
 
         /// <inheritdoc/>

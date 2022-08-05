@@ -1,6 +1,4 @@
-﻿using System.Xml.Serialization;
-
-namespace ArknightsResources.Operators.Models
+﻿namespace ArknightsResources.Operators.Models
 {
     /// <summary>
     /// 干员主要职业的枚举

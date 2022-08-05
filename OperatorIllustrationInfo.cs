@@ -1,5 +1,4 @@
 ﻿using System.Text.Json.Serialization;
-using System.Xml.Serialization;
 
 namespace ArknightsResources.Operators.Models
 {
@@ -30,31 +29,26 @@ namespace ArknightsResources.Operators.Models
         /// <summary>
         /// 立绘名称
         /// </summary>
-        [XmlAttribute]
         public string IllustrationName { get; }
 
         /// <summary>
         /// 立绘描述
         /// </summary>
-        [XmlAttribute]
         public string Description { get; }
 
         /// <summary>
         /// 立绘图片代号
         /// </summary>
-        [XmlAttribute]
         public string ImageCodename { get; }
 
         /// <summary>
         /// 此立绘的种类
         /// </summary>
-        [XmlAttribute]
         public OperatorType Type { get; }
 
         /// <summary>
         /// 立绘画师
         /// </summary>
-        [XmlAttribute]
         public string Illustrator { get; }
 
         /// <inheritdoc/>

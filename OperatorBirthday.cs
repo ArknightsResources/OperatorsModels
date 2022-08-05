@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Text.Json.Serialization;
-using System.Xml.Serialization;
 
 namespace ArknightsResources.Operators.Models
 {
@@ -24,13 +23,11 @@ namespace ArknightsResources.Operators.Models
         /// <summary>
         /// 生日日期中的月份
         /// </summary>
-        [XmlAttribute]
         public int Month { get; }
 
         /// <summary>
         /// 生日日期中的天
         /// </summary>
-        [XmlAttribute]
         public int Day { get; }
 
         /// <inheritdoc/>

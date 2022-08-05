@@ -1,5 +1,4 @@
 ﻿using System.Text.Json.Serialization;
-using System.Xml.Serialization;
 
 namespace ArknightsResources.Operators.Models
 {
@@ -23,13 +22,11 @@ namespace ArknightsResources.Operators.Models
         /// <summary>
         /// 干员配音人员
         /// </summary>
-        [XmlAttribute]
         public string Voice { get; }
 
         /// <summary>
         /// 干员配音的语言种类
         /// </summary>
-        [XmlAttribute]
         public OperatorVocalType Type { get; }
     }
 }
