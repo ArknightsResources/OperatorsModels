@@ -6,7 +6,7 @@ namespace ArknightsResources.Operators.Models
     /// 表示干员的类
     /// </summary>
     [DebuggerDisplay("{" + nameof(GetDebuggerDisplay) + "(),nq}")]
-    public sealed class Operator
+    public class Operator
     {
         /// <summary>
         /// 使用指定的参数构造<see cref="Operator"/>的新实例
