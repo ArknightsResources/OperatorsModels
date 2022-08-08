@@ -22,6 +22,10 @@
         /// 先锋-执旗手
         /// </summary>
         StandardBearer,
+        /// <summary>
+        /// 先锋-情报官
+        /// </summary>
+        Agent,
         #endregion
 
         #region Sniper
