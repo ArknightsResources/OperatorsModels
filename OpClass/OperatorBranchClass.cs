@@ -158,6 +158,10 @@
         /// 重装-要塞
         /// </summary>
         Fortress,
+        /// <summary>
+        /// 重装-哨戒铁卫
+        /// </summary>
+        ShotProtector,
         #endregion
 
         #region Medic
