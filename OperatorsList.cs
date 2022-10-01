@@ -45,12 +45,14 @@ namespace ArknightsResources.Operators.Models
         /// <returns>包含<see cref="Operator"/>对象的数组</returns>
         public Operator[] ToArray()
         {
-            List<Operator> list = new List<Operator>(Operators.Count);
-            foreach (var item in list)
+            Operator[] opArray = new Operator[Operators.Count];
+            int index = 0;
+            foreach (var item in Operators)
             {
-                list.Add(item);
+                opArray[index] = item.Value;
+                index++;
             }
-            return list.ToArray();
+            return opArray;
         }
     }
 }
