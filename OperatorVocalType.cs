@@ -24,6 +24,10 @@
         /// <summary>
         /// 韩语
         /// </summary>
-        Korean
+        Korean,
+        /// <summary>
+        /// 意大利语
+        /// </summary>
+        Italian
     }
 }
