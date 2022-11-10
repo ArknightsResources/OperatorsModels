@@ -19,7 +19,7 @@ namespace ArknightsResources.Operators.Models
         /// <returns>一个<see cref="Operator"/>对象,如果找不到干员,则返回null</returns>
         public Operator GetOperatorWithImageCodename(string imageCodename)
         {
-            return Operators.ContainsKey(imageCodename) ? Operators[imageCodename] : null;
+            return Operators.TryGetValue(imageCodename, out Operator value) ? value : null;
         }
 
         /// <summary>
