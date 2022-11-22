@@ -54,7 +54,7 @@ namespace ArknightsResources.Operators.Models
         /// <inheritdoc/>
         public override string ToString()
         {
-            return $"立绘信息:{IllustrationName};{Type};{ImageCodename};{Illustrator}";
+            return $"Name:{IllustrationName};IllustType:{Type};IllustCodename:{ImageCodename};Illustrator:{Illustrator}";
         }
     }
 }
