@@ -28,7 +28,7 @@ jobs:
       run: dotnet restore
 
     - name: Pack
-      run: dotnet pack
+      run: dotnet pack --configuration Release
       
     - name: Push to GitHub Packages
       run: dotnet nuget push "src/bin/Release/ArknightsResources.Operators.Models.0.1.0-alpha.nupkg" --api-key ${{ secrets.GITHUB_TOKEN }} --source "github"
