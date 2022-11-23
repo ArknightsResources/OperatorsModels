@@ -1,4 +1,4 @@
-name: build
+name: Build and pack
 
 on:
   workflow_dispatch:
@@ -26,12 +26,9 @@ jobs:
 
     - name: Install dependencies
       run: dotnet restore
-      
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
-    
+
     - name: Pack
-      run: dotnet pack --no-build
+      run: dotnet pack
       
     - name: Push to GitHub Packages
       run: dotnet nuget push "src/bin/Release/ArknightsResources.Operators.Models.0.1.0-alpha.nupkg" --api-key ${{ secrets.GITHUB_TOKEN }} --source "github"
