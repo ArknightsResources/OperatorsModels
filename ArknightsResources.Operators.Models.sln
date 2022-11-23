@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArknightsResources.Operators.Models", "ArknightsResources.Operators.Models.csproj", "{D51886DC-D0F9-43AE-87EC-AA828D8C8334}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArknightsResources.Operators.Models", "src\ArknightsResources.Operators.Models.csproj", "{A7BE978F-2510-474C-8A05-7C12C9552891}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D51886DC-D0F9-43AE-87EC-AA828D8C8334}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D51886DC-D0F9-43AE-87EC-AA828D8C8334}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D51886DC-D0F9-43AE-87EC-AA828D8C8334}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D51886DC-D0F9-43AE-87EC-AA828D8C8334}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7BE978F-2510-474C-8A05-7C12C9552891}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7BE978F-2510-474C-8A05-7C12C9552891}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7BE978F-2510-474C-8A05-7C12C9552891}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7BE978F-2510-474C-8A05-7C12C9552891}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
