@@ -29,9 +29,6 @@ jobs:
 
     - name: Pack
       run: dotnet pack --configuration Release --output nupkgs
-    
-    - name: Push Preparation
-      run: cd .\nupkgs
       
     - name: Push to GitHub Packages
       run: dotnet nuget push **\*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }} --source "github"
