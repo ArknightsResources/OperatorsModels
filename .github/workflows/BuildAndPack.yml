@@ -28,7 +28,7 @@ jobs:
       run: dotnet restore
 
     - name: Pack
-      run: dotnet pack --configuration Release
+      run: dotnet pack --configuration Release --output nupkgs
       
     - name: Push to GitHub Packages
-      run: dotnet nuget push "src/bin/Release/*.nupkg" --api-key ${{ secrets.GITHUB_TOKEN }} --source "github"
+      run: dotnet nuget push "nupkgs/*.nupkg" --api-key ${{ secrets.GITHUB_TOKEN }} --source "github"
