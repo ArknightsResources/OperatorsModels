@@ -100,6 +100,10 @@
         /// 近卫-解放者
         /// </summary>
         Liberator,
+        /// <summary>
+        /// 近卫-重剑手
+        /// </summary>
+        Crusher,
         #endregion
 
         #region Caster
@@ -185,6 +189,10 @@
         /// 医疗-咒愈师
         /// </summary>
         IncantationMedic,
+        /// <summary>
+        /// 医疗-链愈师
+        /// </summary>
+        ChainMedic,
         #endregion
 
         #region Specialist
