@@ -21,9 +21,5 @@
         /// 皮肤
         /// </summary>
         Skin,
-        /// <summary>
-        /// 升变
-        /// </summary>
-        Promotion
     }
 }

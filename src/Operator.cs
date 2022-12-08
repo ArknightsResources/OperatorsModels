@@ -1,4 +1,6 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace ArknightsResources.Operators.Models
 {
@@ -6,39 +8,31 @@ namespace ArknightsResources.Operators.Models
     /// 表示干员的类
     /// </summary>
     [DebuggerDisplay("{" + nameof(GetDebuggerDisplay) + "(),nq}")]
-    public class Operator
+    public class Operator : IEquatable<Operator>
     {
         /// <summary>
         /// 使用指定的参数构造<see cref="Operator"/>的新实例
         /// </summary>
         /// <param name="name">干员名称</param>
         /// <param name="star">干员星级</param>
-        /// <param name="imageCodename">干员图像代号</param>
+        /// <param name="codename">干员图像代号</param>
         /// <param name="gender">干员性别</param>
         /// <param name="birthday">干员生日</param>
         /// <param name="class">干员职业</param>
         /// <param name="illustrations">干员立绘信息</param>
         /// <param name="voices">干员配音信息</param>
         /// <param name="profiles">干员档案信息</param>
-        public Operator(string name, int star, string imageCodename, OperatorGender gender, OperatorBirthday? birthday, OperatorClass @class, OperatorIllustrationInfo[] illustrations, OperatorVoiceInfo[] voices, OperatorProfile[] profiles)
+        public Operator(string name, int star, string codename, OperatorGender gender, OperatorBirthday? birthday, OperatorClass @class, OperatorIllustrationInfo[] illustrations, OperatorVoiceInfo[] voices, OperatorProfile[] profiles)
         {
             Name = name;
             Star = star;
-            ImageCodename = imageCodename;
+            Codename = codename;
             Gender = gender;
             Birthday = birthday;
             Class = @class;
             Illustrations = illustrations;
             Voices = voices;
             Profiles = profiles;
-        }
-
-        /// <summary>
-        /// 构造<see cref="Operator"/>的新实例
-        /// </summary>
-        public Operator()
-        {
-
         }
 
         /// <summary>
@@ -52,9 +46,9 @@ namespace ArknightsResources.Operators.Models
         public int Star { get; set; }
 
         /// <summary>
-        /// 干员立绘图代号
+        /// 干员内部代号
         /// </summary>
-        public string ImageCodename { get; set; }
+        public string Codename { get; set; }
 
         /// <summary>
         /// 干员性别
@@ -86,6 +80,55 @@ namespace ArknightsResources.Operators.Models
         /// </summary>
         public OperatorProfile[] Profiles { get; set; }
 
+        /// <inheritdoc/>
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as Operator);
+        }
+
+        /// <inheritdoc/>
+        public bool Equals(Operator other)
+        {
+            return !(other is null) &&
+                   Name == other.Name &&
+                   Star == other.Star &&
+                   Codename == other.Codename &&
+                   Gender == other.Gender &&
+                   EqualityComparer<OperatorBirthday?>.Default.Equals(Birthday, other.Birthday) &&
+                   EqualityComparer<OperatorClass>.Default.Equals(Class, other.Class) &&
+                   EqualityComparer<OperatorIllustrationInfo[]>.Default.Equals(Illustrations, other.Illustrations) &&
+                   EqualityComparer<OperatorVoiceInfo[]>.Default.Equals(Voices, other.Voices) &&
+                   EqualityComparer<OperatorProfile[]>.Default.Equals(Profiles, other.Profiles);
+        }
+
+        /// <inheritdoc/>
+        public override int GetHashCode()
+        {
+            int hashCode = -45877082;
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Name);
+            hashCode = hashCode * -1521134295 + Star.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Codename);
+            hashCode = hashCode * -1521134295 + Gender.GetHashCode();
+            hashCode = hashCode * -1521134295 + Birthday.GetHashCode();
+            hashCode = hashCode * -1521134295 + Class.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<OperatorIllustrationInfo[]>.Default.GetHashCode(Illustrations);
+            hashCode = hashCode * -1521134295 + EqualityComparer<OperatorVoiceInfo[]>.Default.GetHashCode(Voices);
+            hashCode = hashCode * -1521134295 + EqualityComparer<OperatorProfile[]>.Default.GetHashCode(Profiles);
+            return hashCode;
+        }
+
         private string GetDebuggerDisplay() => Name;
+
+        /// <inheritdoc/>
+        public static bool operator ==(Operator left, Operator right)
+        {
+            return EqualityComparer<Operator>.Default.Equals(left, right);
+        }
+
+        /// <inheritdoc/>
+        public static bool operator !=(Operator left, Operator right)
+        {
+            return !(left == right);
+        }
     }
 }

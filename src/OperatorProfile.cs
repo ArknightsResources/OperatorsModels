@@ -53,23 +53,13 @@ namespace ArknightsResources.Operators.Models
             return hashCode;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="left"></param>
-        /// <param name="right"></param>
-        /// <returns></returns>
+        /// <inheritdoc/>
         public static bool operator ==(OperatorProfile left, OperatorProfile right)
         {
             return left.Equals(right);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="left"></param>
-        /// <param name="right"></param>
-        /// <returns></returns>
+        /// <inheritdoc/>
         public static bool operator !=(OperatorProfile left, OperatorProfile right)
         {
             return !(left == right);
