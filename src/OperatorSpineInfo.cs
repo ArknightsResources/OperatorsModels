@@ -14,7 +14,7 @@ namespace ArknightsResources.Operators.Models
         public OperatorSpineModelSet ModelSet { get; }
 
         /// <summary>
-        /// 干员图片代号
+        /// 干员立绘代号
         /// </summary>
         public string ImageCodename { get; }
 
