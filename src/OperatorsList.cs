@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text.Json.Serialization;
 
@@ -11,18 +12,18 @@ namespace ArknightsResources.Operators.Models
     public sealed class OperatorsList : IEnumerable<Operator>
     {
         /// <summary>
-        /// 包含<see cref="Operator"/>对象的字典
+        /// 包含<see cref="Operator"/>对象的只读字典
         /// </summary>
-        private Dictionary<string, Operator> Operators { get; set; }
+        [JsonInclude]
+        public ReadOnlyDictionary<string, Operator> Operators { get; private set; }
 
         /// <summary>
         /// 构造<see cref="OperatorsList"/>的新实例
         /// </summary>
         /// <param name="operators">包含<see cref="Operator"/>对象的字典</param>
-        [JsonConstructor]
         public OperatorsList(Dictionary<string, Operator> operators)
         {
-            Operators = operators;
+            Operators = new ReadOnlyDictionary<string, Operator>(operators);
         }
 
         /// <summary>
@@ -32,11 +33,12 @@ namespace ArknightsResources.Operators.Models
         public OperatorsList(IEnumerable<Operator> operators)
         {
             int capacity = operators is ICollection<Operator> ops ? ops.Count : operators.Count();
-            Operators = new Dictionary<string, Operator>(capacity);
+            Dictionary<string, Operator> dict = new Dictionary<string, Operator>(capacity);
             foreach (Operator item in operators)
             {
-                Operators[item.Codename] = item;
+                dict[item.Codename] = item;
             }
+            Operators = new ReadOnlyDictionary<string, Operator>(dict);
         }
 
         /// <summary>
@@ -44,7 +46,17 @@ namespace ArknightsResources.Operators.Models
         /// </summary>
         /// <param name="codename">干员代号</param>
         /// <returns>一个<see cref="Operator"/>对象,如果找不到干员,则返回null</returns>
-        public Operator this[string codename] => Operators.TryGetValue(codename, out Operator value)? value : null;
+        public Operator this[string codename] => GetOperatorWithCodename(codename);
+
+        /// <summary>
+        /// 通过干员代号获取指定的干员
+        /// </summary>
+        /// <param name="codename">干员代号</param>
+        /// <returns>一个<see cref="Operator"/>对象,如果找不到干员,则返回null</returns>
+        public Operator GetOperatorWithCodename(string codename)
+        {
+            return Operators.TryGetValue(codename, out Operator value) ? value : null;
+        }
 
         /// <summary>
         /// 使用干员名称获取指定的干员
