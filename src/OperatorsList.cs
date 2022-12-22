@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
 namespace ArknightsResources.Operators.Models
 {
@@ -11,27 +10,32 @@ namespace ArknightsResources.Operators.Models
         /// <summary>
         /// 包含<see cref="Operator"/>对象的字典
         /// </summary>
-        private Dictionary<string, Operator> Operators { get; set; }
+        public Dictionary<string, Operator> Operators { get; set; }
 
         /// <summary>
-        /// 通过干员代号获取指定的干员
+        /// 使用干员图像代号获取指定的干员
         /// </summary>
-        /// <param name="codename">干员代号</param>
+        /// <param name="imageCodename">干员图像代号</param>
         /// <returns>一个<see cref="Operator"/>对象,如果找不到干员,则返回null</returns>
-        public Operator this[string codename] => Operators.TryGetValue(codename, out Operator value)? value : null;
+        public Operator GetOperatorWithImageCodename(string imageCodename)
+        {
+            return Operators.TryGetValue(imageCodename, out Operator value) ? value : null;
+        }
 
         /// <summary>
         /// 使用干员名称获取指定的干员
         /// </summary>
-        /// <param name="name">干员名称</param>
+        /// <param name="name">干员代号</param>
         /// <returns>一个<see cref="Operator"/>对象,如果找不到干员,则返回null</returns>
-        public Operator GetOperator(string name)
+        public Operator GetOperatorWithName(string name)
         {
-            foreach (var item in Operators.Where(item => item.Value.Name == name))
+            foreach (var item in Operators)
             {
-                return item.Value;
+                if (item.Value.Name == name)
+                {
+                    return item.Value;
+                }
             }
-
             return null;
         }
 
