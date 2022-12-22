@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Text.Json.Serialization;
 
@@ -9,21 +9,31 @@ namespace ArknightsResources.Operators.Models
     /// <summary>
     /// 干员列表
     /// </summary>
-    public sealed class OperatorsList : IEnumerable<Operator>
+    public sealed class OperatorsList
     {
         /// <summary>
         /// 包含<see cref="Operator"/>对象的只读字典
         /// </summary>
-        [JsonInclude]
-        public ReadOnlyDictionary<string, Operator> Operators { get; private set; }
+        public ImmutableDictionary<string, Operator> Operators { get; }
 
         /// <summary>
         /// 构造<see cref="OperatorsList"/>的新实例
         /// </summary>
-        /// <param name="operators">包含<see cref="Operator"/>对象的字典</param>
-        public OperatorsList(Dictionary<string, Operator> operators)
+        /// <param name="operators">Key为干员代号,Value为<see cref="Operator"/>对象的IDictionary</param>
+        public OperatorsList(IDictionary<string, Operator> operators)
         {
-            Operators = new ReadOnlyDictionary<string, Operator>(operators);
+            Operators = operators.ToImmutableDictionary();
+        }
+
+        /// <summary>
+        /// 构造<see cref="OperatorsList"/>的新实例
+        /// </summary>
+        /// <param name="operators">Key为干员代号,Value为<see cref="Operator"/>对象的不可变字典</param>
+        [JsonConstructor]
+        public OperatorsList(ImmutableDictionary<string, Operator> operators)
+        {
+            //For JSON serialization
+            Operators = operators;
         }
 
         /// <summary>
@@ -38,7 +48,7 @@ namespace ArknightsResources.Operators.Models
             {
                 dict[item.Codename] = item;
             }
-            Operators = new ReadOnlyDictionary<string, Operator>(dict);
+            Operators = dict.ToImmutableDictionary();
         }
 
         /// <summary>
@@ -89,14 +99,16 @@ namespace ArknightsResources.Operators.Models
             return opArray;
         }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// 获取<see cref="OperatorsList"/>的枚举器
+        /// </summary>
+        /// <returns><see cref="OperatorsList"/>的枚举器</returns>
         public IEnumerator<Operator> GetEnumerator()
         {
-            return Operators.Values.GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
+            //不实现IEnumerable接口的原因是:Json反序列化器如果发现类型实现了IEnumerable接口
+            //则会将对象按集合的形式序列化与反序列化
+            //这会破坏序列化兼容性
+            //不过,即使不实现IEnumerable接口,只要有GetEnumerator方法,就可以在foreach中枚举
             return Operators.Values.GetEnumerator();
         }
     }
