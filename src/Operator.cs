@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 
 namespace ArknightsResources.Operators.Models
 {
@@ -96,9 +97,9 @@ namespace ArknightsResources.Operators.Models
                    Gender == other.Gender &&
                    EqualityComparer<OperatorBirthday?>.Default.Equals(Birthday, other.Birthday) &&
                    EqualityComparer<OperatorClass>.Default.Equals(Class, other.Class) &&
-                   EqualityComparer<OperatorIllustrationInfo[]>.Default.Equals(Illustrations, other.Illustrations) &&
-                   EqualityComparer<OperatorVoiceInfo[]>.Default.Equals(Voices, other.Voices) &&
-                   EqualityComparer<OperatorProfile[]>.Default.Equals(Profiles, other.Profiles);
+                   Illustrations.SequenceEqual(other.Illustrations) &&
+                   Voices.SequenceEqual(other.Voices) &&
+                   Profiles.SequenceEqual(other.Profiles);
         }
 
         /// <inheritdoc/>
