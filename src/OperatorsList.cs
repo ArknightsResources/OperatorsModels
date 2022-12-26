@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace ArknightsResources.Operators.Models
     /// <summary>
     /// 干员列表
     /// </summary>
-    public sealed class OperatorsList
+    public sealed class OperatorsList : IEquatable<OperatorsList>
     {
         /// <summary>
         /// 包含<see cref="Operator"/>对象的只读字典
@@ -110,6 +111,24 @@ namespace ArknightsResources.Operators.Models
             //这会破坏序列化兼容性
             //不过,即使不实现IEnumerable接口,只要有GetEnumerator方法,就可以在foreach中枚举
             return Operators.Values.GetEnumerator();
+        }
+
+        /// <inheritdoc/>
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as OperatorsList);
+        }
+
+        /// <inheritdoc/>
+        public bool Equals(OperatorsList other)
+        {
+            return !(other is null) && Operators.SequenceEqual(other.Operators);
+        }
+
+        ///<inheritdoc/>
+        public override int GetHashCode()
+        {
+            return 2017162682 + EqualityComparer<ImmutableDictionary<string, Operator>>.Default.GetHashCode(Operators);
         }
     }
 }

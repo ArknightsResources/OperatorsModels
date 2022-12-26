@@ -1,9 +1,7 @@
-name: Build and pack
+name: Build and test
 
 on:
-  workflow_dispatch:
-  push:
-    branches: [ main ]
+  pull_request:
 
 env:
   DOTNET_VERSION: '7.x' # The .NET SDK version to use
@@ -11,7 +9,7 @@ env:
 jobs:
   build:
 
-    name: Build and pack
+    name: Build and test
     runs-on: windows-latest
 
     steps:
@@ -29,9 +27,3 @@ jobs:
 
     - name: Test
       run: dotnet test
-
-    - name: Pack
-      run: dotnet pack --configuration Release --output nupkgs
-      
-    - name: Push to GitHub Packages
-      run: dotnet nuget push **\*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }} --source "github"
