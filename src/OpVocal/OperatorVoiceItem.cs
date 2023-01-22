@@ -16,13 +16,15 @@ namespace ArknightsResources.Operators.Models
         /// <param name="voiceId">该条语音的包内ID(如"CN_007")</param>
         /// <param name="voiceTitle">该条语音的标题(如"信赖提升后交谈1")</param>
         /// <param name="voiceText">该条语音的文本</param>
+        /// <param name="voiceType">该条语音的语言种类</param>
         [JsonConstructor]
-        public OperatorVoiceItem(string charactorCodename, string voiceId, string voiceTitle, string voiceText)
+        public OperatorVoiceItem(string charactorCodename, string voiceId, string voiceTitle, string voiceText, OperatorVoiceType voiceType)
         {
             CharactorCodename = charactorCodename;
             VoiceId = voiceId;
             VoiceTitle = voiceTitle;
             VoiceText = voiceText;
+            VoiceType = voiceType;
         }
 
         /// <summary>
@@ -45,6 +47,11 @@ namespace ArknightsResources.Operators.Models
         /// </summary>
         public string VoiceText { get; }
 
+        /// <summary>
+        /// 该条语音的语言
+        /// </summary>
+        public OperatorVoiceType VoiceType { get; }
+
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
@@ -57,7 +64,8 @@ namespace ArknightsResources.Operators.Models
             return CharactorCodename == other.CharactorCodename &&
                    VoiceId == other.VoiceId &&
                    VoiceTitle == other.VoiceTitle &&
-                   VoiceText == other.VoiceText;
+                   VoiceText == other.VoiceText &&
+                   VoiceType == other.VoiceType;
         }
 
         /// <inheritdoc/>
@@ -68,6 +76,7 @@ namespace ArknightsResources.Operators.Models
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(VoiceId);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(VoiceTitle);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(VoiceText);
+            hashCode = hashCode * -1521134295 + EqualityComparer<OperatorVoiceType>.Default.GetHashCode(VoiceType);
             return hashCode;
         }
 
