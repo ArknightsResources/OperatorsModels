@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 namespace ArknightsResources.Operators.Models
 {
     /// <summary>
-    /// 表示干员配音信息的结构
+    /// 表示干员语音信息的结构
     /// </summary>
     public readonly struct OperatorVoiceInfo : IEquatable<OperatorVoiceInfo>
     {
