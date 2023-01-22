@@ -1,4 +1,4 @@
-using System.Text.Encodings.Web;
+﻿using System.Text.Encodings.Web;
 using System.Text.Json.Serialization;
 using System.Text.Json;
 using System.Text.Unicode;
@@ -11,6 +11,8 @@ namespace ArknightsResources.Operators.Models.Test
         [Fact]
         public void OperatorSerializeAndDeserializeTest()
         {
+            OperatorVoiceItem[] voices = new OperatorVoiceItem[] { new OperatorVoiceItem("baka", "CN_001", "任命助理", "你好呀博士！", OperatorVoiceType.ChineseMandarin) };
+
             Operator testOperator = new("Baka632",
                                         6,
                                         "baka",
@@ -18,7 +20,7 @@ namespace ArknightsResources.Operators.Models.Test
                                         new OperatorBirthday(5, 14),
                                         new OperatorClass(OperatorMainClass.Supporter, OperatorBranchClass.Summoner),
                                         new OperatorIllustrationInfo[] { new OperatorIllustrationInfo("Traveler", "Travel for lights", "baka_travel", OperatorType.Skin, "Baka632") },
-                                        new OperatorVoiceInfo[] { new OperatorVoiceInfo("Baka632", OperatorVocalType.ChineseMandarin) },
+                                        new OperatorVoiceInfo[] { new OperatorVoiceInfo("Baka632", OperatorVoiceType.ChineseMandarin, voices) },
                                         new OperatorProfile[] { new OperatorProfile("???", OperatorProfileType.Unknown) });
             
             MemoryStream stream = new();
@@ -40,6 +42,8 @@ namespace ArknightsResources.Operators.Models.Test
         [Fact]
         public void OperatorsListSerializeAndDeserializeTest()
         {
+            OperatorVoiceItem[] voices = new OperatorVoiceItem[] { new OperatorVoiceItem("baka", "CN_001", "任命助理", "你好呀博士！", OperatorVoiceType.ChineseMandarin) };
+
             Operator testOperator1 = new(
                     "Baka632",
                     6,
@@ -48,7 +52,7 @@ namespace ArknightsResources.Operators.Models.Test
                     new OperatorBirthday(5, 14),
                     new OperatorClass(OperatorMainClass.Supporter, OperatorBranchClass.Summoner),
                     new OperatorIllustrationInfo[] { new OperatorIllustrationInfo("Traveler", "Travel for lights", "baka_travel", OperatorType.Skin, "Baka632") },
-                    new OperatorVoiceInfo[] { new OperatorVoiceInfo("Baka632", OperatorVocalType.ChineseMandarin) },
+                    new OperatorVoiceInfo[] { new OperatorVoiceInfo("Baka632", OperatorVoiceType.ChineseMandarin, voices) },
                     new OperatorProfile[] { new OperatorProfile("???", OperatorProfileType.Unknown) }
                 );
 
@@ -60,7 +64,7 @@ namespace ArknightsResources.Operators.Models.Test
                 new OperatorBirthday(5, 14),
                 new OperatorClass(OperatorMainClass.Specialist, OperatorBranchClass.Trapmaster),
                 new OperatorIllustrationInfo[] { new OperatorIllustrationInfo("Far", "Faraway", "ab_far", OperatorType.Skin, "Baka632") },
-                new OperatorVoiceInfo[] { new OperatorVoiceInfo("Baka632", OperatorVocalType.ChineseMandarin) },
+                new OperatorVoiceInfo[] { new OperatorVoiceInfo("Baka632", OperatorVoiceType.ChineseMandarin, voices) },
                 new OperatorProfile[] { new OperatorProfile("???", OperatorProfileType.Unknown) }
             );
 
@@ -89,6 +93,36 @@ namespace ArknightsResources.Operators.Models.Test
             {
                 Assert.Equal(item, opList[item.Codename]);
             }
+        }
+
+        [Fact]
+        public void OperatorEqualityTest()
+        {
+            OperatorVoiceItem[] voicesA = new OperatorVoiceItem[] { new OperatorVoiceItem("baka", "CN_001", "任命助理", "你好呀博士！", OperatorVoiceType.ChineseMandarin) };
+
+            Operator opA = new("Baka632",
+                                        6,
+                                        "baka",
+                                        OperatorGender.Male,
+                                        new OperatorBirthday(5, 14),
+                                        new OperatorClass(OperatorMainClass.Supporter, OperatorBranchClass.Summoner),
+                                        new OperatorIllustrationInfo[] { new OperatorIllustrationInfo("Traveler", "Travel for lights", "baka_travel", OperatorType.Skin, "Baka632") },
+                                        new OperatorVoiceInfo[] { new OperatorVoiceInfo("Baka632", OperatorVoiceType.ChineseMandarin, voicesA) },
+                                        new OperatorProfile[] { new OperatorProfile("???", OperatorProfileType.Unknown) });
+
+            OperatorVoiceItem[] voicesB = new OperatorVoiceItem[] { new OperatorVoiceItem("baka", "CN_001", "任命助理", "你好呀博士！",OperatorVoiceType.ChineseMandarin) };
+
+            Operator opB = new("Baka632",
+                                        6,
+                                        "baka",
+                                        OperatorGender.Male,
+                                        new OperatorBirthday(5, 14),
+                                        new OperatorClass(OperatorMainClass.Supporter, OperatorBranchClass.Summoner),
+                                        new OperatorIllustrationInfo[] { new OperatorIllustrationInfo("Traveler", "Travel for lights", "baka_travel", OperatorType.Skin, "Baka632") },
+                                        new OperatorVoiceInfo[] { new OperatorVoiceInfo("Baka632", OperatorVoiceType.ChineseMandarin, voicesB) },
+                                        new OperatorProfile[] { new OperatorProfile("???", OperatorProfileType.Unknown) });
+
+            Assert.Equal(opA, opB);
         }
     }
 }

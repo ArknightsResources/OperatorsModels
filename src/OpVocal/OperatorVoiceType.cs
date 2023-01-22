@@ -3,7 +3,7 @@
     /// <summary>
     /// 干员配音的语言种类
     /// </summary>
-    public enum OperatorVocalType
+    public enum OperatorVoiceType
     {
         /// <summary>
         /// 中文普通话

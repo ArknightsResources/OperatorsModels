@@ -39,47 +39,47 @@ namespace ArknightsResources.Operators.Models
         /// <summary>
         /// 干员名称
         /// </summary>
-        public string Name { get; set; }
+        public string Name { get; }
 
         /// <summary>
         /// 干员星级
         /// </summary>
-        public int Star { get; set; }
+        public int Star { get; }
 
         /// <summary>
         /// 干员内部代号
         /// </summary>
-        public string Codename { get; set; }
+        public string Codename { get; }
 
         /// <summary>
         /// 干员性别
         /// </summary>
-        public OperatorGender Gender { get; set; }
+        public OperatorGender Gender { get; }
 
         /// <summary>
         /// 干员生日
         /// </summary>
-        public OperatorBirthday? Birthday { get; set; }
+        public OperatorBirthday? Birthday { get; }
 
         /// <summary>
         /// 干员职业
         /// </summary>
-        public OperatorClass Class { get; set; }
+        public OperatorClass Class { get; }
 
         /// <summary>
         /// 干员的立绘信息
         /// </summary>
-        public OperatorIllustrationInfo[] Illustrations { get; set; }
+        public OperatorIllustrationInfo[] Illustrations { get; }
 
         /// <summary>
         /// 干员的配音信息
         /// </summary>
-        public OperatorVoiceInfo[] Voices { get; set; }
+        public OperatorVoiceInfo[] Voices { get; }
 
         /// <summary>
         /// 干员档案
         /// </summary>
-        public OperatorProfile[] Profiles { get; set; }
+        public OperatorProfile[] Profiles { get; }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
