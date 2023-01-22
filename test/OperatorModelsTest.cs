@@ -1,4 +1,4 @@
-using System.Text.Encodings.Web;
+ï»¿using System.Text.Encodings.Web;
 using System.Text.Json.Serialization;
 using System.Text.Json;
 using System.Text.Unicode;
@@ -11,7 +11,7 @@ namespace ArknightsResources.Operators.Models.Test
         [Fact]
         public void OperatorSerializeAndDeserializeTest()
         {
-            OperatorVoiceItem[] voices = new OperatorVoiceItem[] { new OperatorVoiceItem("baka", "CN_001", "ÈÎÃüÖúÀí", "ÄãºÃÑ½²©Ê¿£¡", OperatorVoiceType.ChineseMandarin) };
+            OperatorVoiceItem[] voices = new OperatorVoiceItem[] { new OperatorVoiceItem("baka", "CN_001", "ä»»å‘½åŠ©ç†", "ä½ å¥½å‘€åšå£«ï¼", OperatorVoiceType.ChineseMandarin) };
 
             Operator testOperator = new("Baka632",
                                         6,
@@ -42,7 +42,7 @@ namespace ArknightsResources.Operators.Models.Test
         [Fact]
         public void OperatorsListSerializeAndDeserializeTest()
         {
-            OperatorVoiceItem[] voices = new OperatorVoiceItem[] { new OperatorVoiceItem("baka", "CN_001", "ÈÎÃüÖúÀí", "ÄãºÃÑ½²©Ê¿£¡", OperatorVoiceType.ChineseMandarin) };
+            OperatorVoiceItem[] voices = new OperatorVoiceItem[] { new OperatorVoiceItem("baka", "CN_001", "ä»»å‘½åŠ©ç†", "ä½ å¥½å‘€åšå£«ï¼", OperatorVoiceType.ChineseMandarin) };
 
             Operator testOperator1 = new(
                     "Baka632",
@@ -98,7 +98,7 @@ namespace ArknightsResources.Operators.Models.Test
         [Fact]
         public void OperatorEqualityTest()
         {
-            OperatorVoiceItem[] voicesA = new OperatorVoiceItem[] { new OperatorVoiceItem("baka", "CN_001", "ÈÎÃüÖúÀí", "ÄãºÃÑ½²©Ê¿£¡", OperatorVoiceType.ChineseMandarin) };
+            OperatorVoiceItem[] voicesA = new OperatorVoiceItem[] { new OperatorVoiceItem("baka", "CN_001", "ä»»å‘½åŠ©ç†", "ä½ å¥½å‘€åšå£«ï¼", OperatorVoiceType.ChineseMandarin) };
 
             Operator opA = new("Baka632",
                                         6,
@@ -110,7 +110,7 @@ namespace ArknightsResources.Operators.Models.Test
                                         new OperatorVoiceInfo[] { new OperatorVoiceInfo("Baka632", OperatorVoiceType.ChineseMandarin, voicesA) },
                                         new OperatorProfile[] { new OperatorProfile("???", OperatorProfileType.Unknown) });
 
-            OperatorVoiceItem[] voicesB = new OperatorVoiceItem[] { new OperatorVoiceItem("baka", "CN_001", "ÈÎÃüÖúÀí", "ÄãºÃÑ½²©Ê¿£¡",OperatorVoiceType.ChineseMandarin) };
+            OperatorVoiceItem[] voicesB = new OperatorVoiceItem[] { new OperatorVoiceItem("baka", "CN_001", "ä»»å‘½åŠ©ç†", "ä½ å¥½å‘€åšå£«ï¼",OperatorVoiceType.ChineseMandarin) };
 
             Operator opB = new("Baka632",
                                         6,
