@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.Json.Serialization;
 
 namespace ArknightsResources.Operators.Models
@@ -12,24 +13,31 @@ namespace ArknightsResources.Operators.Models
         /// <summary>
         /// 初始化<see cref="OperatorVoiceInfo"/>结构的新实例
         /// </summary>
-        /// <param name="voice">配音人员</param>
+        /// <param name="cv">配音人员</param>
         /// <param name="type">配音的语言种类</param>
+        /// <param name="voices">语音条目</param>
         [JsonConstructor]
-        public OperatorVoiceInfo(string voice, OperatorVocalType type)
+        public OperatorVoiceInfo(string cv, OperatorVoiceType type, OperatorVoiceItem[] voices)
         {
-            Voice = voice;
+            CV = cv;
             Type = type;
+            Voices = voices;
         }
 
         /// <summary>
         /// 干员配音人员
         /// </summary>
-        public string Voice { get; }
+        public string CV { get; }
 
         /// <summary>
         /// 干员配音的语言种类
         /// </summary>
-        public OperatorVocalType Type { get; }
+        public OperatorVoiceType Type { get; }
+
+        /// <summary>
+        /// 干员的语音条目
+        /// </summary>
+        public OperatorVoiceItem[] Voices { get; }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -40,16 +48,18 @@ namespace ArknightsResources.Operators.Models
         /// <inheritdoc/>
         public bool Equals(OperatorVoiceInfo other)
         {
-            return Voice == other.Voice &&
-                   Type == other.Type;
+            return CV == other.CV &&
+                   Type == other.Type &&
+                   Voices.SequenceEqual(other.Voices);
         }
 
         /// <inheritdoc/>
         public override int GetHashCode()
         {
             int hashCode = 291305966;
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Voice);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(CV);
             hashCode = hashCode * -1521134295 + Type.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<OperatorVoiceItem[]>.Default.GetHashCode(Voices);
             return hashCode;
         }
 
