@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text.Json.Serialization;
 
 namespace ArknightsResources.Operators.Models
 {
     /// <summary>
-    /// 表示干员的类
+    /// 表示干员的结构
     /// </summary>
     [DebuggerDisplay("{" + nameof(GetDebuggerDisplay) + "(),nq}")]
-    public class Operator : IEquatable<Operator>
+    public readonly struct Operator : IEquatable<Operator>
     {
         /// <summary>
         /// 使用指定的参数构造<see cref="Operator"/>的新实例
@@ -23,6 +24,7 @@ namespace ArknightsResources.Operators.Models
         /// <param name="illustrations">干员立绘信息</param>
         /// <param name="voices">干员配音信息</param>
         /// <param name="profiles">干员档案信息</param>
+        [JsonConstructor]
         public Operator(string name, int star, string codename, OperatorGender gender, OperatorBirthday? birthday, OperatorClass @class, OperatorIllustrationInfo[] illustrations, OperatorVoiceInfo[] voices, OperatorProfile[] profiles)
         {
             Name = name;
@@ -84,14 +86,13 @@ namespace ArknightsResources.Operators.Models
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            return Equals(obj as Operator);
+            return obj is Operator op && Equals(op);
         }
 
         /// <inheritdoc/>
         public bool Equals(Operator other)
         {
-            return !(other is null) &&
-                   Name == other.Name &&
+            return Name == other.Name &&
                    Star == other.Star &&
                    Codename == other.Codename &&
                    Gender == other.Gender &&
