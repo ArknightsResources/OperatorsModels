@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text.Json.Serialization;
 
 namespace ArknightsResources.Operators.Models
@@ -7,6 +8,7 @@ namespace ArknightsResources.Operators.Models
     /// <summary>
     /// 表示一条干员语音的结构
     /// </summary>
+    [DebuggerDisplay("{" + nameof(GetDebuggerDisplay) + "(),nq}")]
     public readonly struct OperatorVoiceItem : IEquatable<OperatorVoiceItem>
     {
         /// <summary>
@@ -51,6 +53,11 @@ namespace ArknightsResources.Operators.Models
         /// 该条语音的语言
         /// </summary>
         public OperatorVoiceType VoiceType { get; }
+
+        private string GetDebuggerDisplay()
+        {
+            return $"{CharactorCodename}, {VoiceId}, {VoiceTitle}, {VoiceType}:{VoiceText}";
+        }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
