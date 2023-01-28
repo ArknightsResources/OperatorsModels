@@ -9,10 +9,10 @@ namespace ArknightsResources.Operators.Models
     /// 表示一条干员语音的结构
     /// </summary>
     [DebuggerDisplay("{" + nameof(GetDebuggerDisplay) + "(),nq}")]
-    public readonly struct OperatorVoiceItem : IEquatable<OperatorVoiceItem>
+    public readonly struct OperatorVoiceLine : IEquatable<OperatorVoiceLine>
     {
         /// <summary>
-        /// 初始化<see cref="OperatorVoiceItem"/>结构的新实例
+        /// 初始化<see cref="OperatorVoiceLine"/>结构的新实例
         /// </summary>
         /// <param name="charactorCodename">该条语音所属干员的内部代号</param>
         /// <param name="voiceId">该条语音的包内ID(如"CN_007")</param>
@@ -20,7 +20,7 @@ namespace ArknightsResources.Operators.Models
         /// <param name="voiceText">该条语音的文本</param>
         /// <param name="voiceType">该条语音的语言种类</param>
         [JsonConstructor]
-        public OperatorVoiceItem(string charactorCodename, string voiceId, string voiceTitle, string voiceText, OperatorVoiceType voiceType)
+        public OperatorVoiceLine(string charactorCodename, string voiceId, string voiceTitle, string voiceText, OperatorVoiceType voiceType)
         {
             CharactorCodename = charactorCodename;
             VoiceId = voiceId;
@@ -62,11 +62,11 @@ namespace ArknightsResources.Operators.Models
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            return obj is OperatorVoiceItem item && Equals(item);
+            return obj is OperatorVoiceLine item && Equals(item);
         }
 
         /// <inheritdoc/>
-        public bool Equals(OperatorVoiceItem other)
+        public bool Equals(OperatorVoiceLine other)
         {
             return CharactorCodename == other.CharactorCodename &&
                    VoiceId == other.VoiceId &&
@@ -88,13 +88,13 @@ namespace ArknightsResources.Operators.Models
         }
 
         /// <inheritdoc/>
-        public static bool operator ==(OperatorVoiceItem left, OperatorVoiceItem right)
+        public static bool operator ==(OperatorVoiceLine left, OperatorVoiceLine right)
         {
             return left.Equals(right);
         }
 
         /// <inheritdoc/>
-        public static bool operator !=(OperatorVoiceItem left, OperatorVoiceItem right)
+        public static bool operator !=(OperatorVoiceLine left, OperatorVoiceLine right)
         {
             return !(left == right);
         }
