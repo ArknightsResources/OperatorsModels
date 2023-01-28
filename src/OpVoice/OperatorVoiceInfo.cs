@@ -19,7 +19,7 @@ namespace ArknightsResources.Operators.Models
         /// <param name="type">配音的语言种类</param>
         /// <param name="voices">语音条目</param>
         [JsonConstructor]
-        public OperatorVoiceInfo(string cv, OperatorVoiceType type, OperatorVoiceItem[] voices)
+        public OperatorVoiceInfo(string cv, OperatorVoiceType type, OperatorVoiceLine[] voices)
         {
             CV = cv;
             Type = type;
@@ -39,7 +39,7 @@ namespace ArknightsResources.Operators.Models
         /// <summary>
         /// 干员的语音条目
         /// </summary>
-        public OperatorVoiceItem[] Voices { get; }
+        public OperatorVoiceLine[] Voices { get; }
 
         private string GetDebuggerDisplay()
         {
@@ -66,7 +66,7 @@ namespace ArknightsResources.Operators.Models
             int hashCode = 291305966;
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(CV);
             hashCode = hashCode * -1521134295 + Type.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<OperatorVoiceItem[]>.Default.GetHashCode(Voices);
+            hashCode = hashCode * -1521134295 + EqualityComparer<OperatorVoiceLine[]>.Default.GetHashCode(Voices);
             return hashCode;
         }
 
