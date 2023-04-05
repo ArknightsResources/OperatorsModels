@@ -6,6 +6,10 @@
     public enum OperatorVoiceType
     {
         /// <summary>
+        /// 无语言倾向
+        /// </summary>
+        None,
+        /// <summary>
         /// 中文普通话
         /// </summary>
         ChineseMandarin,
