@@ -22,10 +22,10 @@ namespace ArknightsResources.Operators.Models
         [JsonConstructor]
         public OperatorVoiceLine(string charactorCodename, string voiceId, string voiceTitle, string voiceText, OperatorVoiceType voiceType)
         {
-            CharactorCodename = charactorCodename;
-            VoiceId = voiceId;
-            VoiceTitle = voiceTitle;
-            VoiceText = voiceText;
+            CharactorCodename = charactorCodename ?? throw new ArgumentNullException(nameof(charactorCodename));
+            VoiceId = voiceId ?? throw new ArgumentNullException(nameof(voiceId));
+            VoiceTitle = voiceTitle ?? throw new ArgumentNullException(nameof(voiceTitle));
+            VoiceText = voiceText ?? throw new ArgumentNullException(nameof(voiceText));
             VoiceType = voiceType;
         }
 

@@ -17,10 +17,12 @@
     <Description>Provides models about Arknights Operators</Description>
     <IsTrimmable>true</IsTrimmable>
     <AnalysisLevel>latest</AnalysisLevel>
-    <Version>0.2.2.0-alpha</Version>
+    <Version>0.3.0.0-alpha</Version>
     <IncludeSymbols>True</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <DebugType>portable</DebugType>
+    <LangVersion>8.0</LangVersion>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">

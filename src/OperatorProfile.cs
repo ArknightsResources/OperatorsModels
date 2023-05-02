@@ -17,7 +17,7 @@ namespace ArknightsResources.Operators.Models
         [JsonConstructor]
         public OperatorProfile(string profile, OperatorProfileType type)
         {
-            Profile = profile;
+            Profile = profile ?? throw new ArgumentNullException(nameof(profile));
             Type = type;
         }
 

@@ -14,12 +14,12 @@ namespace ArknightsResources.Operators.Models.Test
             OperatorVoiceLine[] voices = new OperatorVoiceLine[] { new OperatorVoiceLine("baka", "CN_001", "任命助理", "你好呀博士！", OperatorVoiceType.ChineseMandarin) };
 
             Operator testOperator = new("Baka632",
-                                        6,
                                         "baka",
+                                        6,
                                         OperatorGender.Male,
                                         new OperatorBirthday(5, 14),
                                         new OperatorClass(OperatorMainClass.Supporter, OperatorBranchClass.Summoner),
-                                        new OperatorIllustrationInfo[] { new OperatorIllustrationInfo("Traveler", "Travel for lights", "baka_travel", OperatorType.Skin, "Baka632") },
+                                        new OperatorIllustrationInfo[] { new OperatorIllustrationInfo(OperatorType.Skin, "Traveler", "Travel for lights", "baka_travel", "Baka632",null) },
                                         new OperatorVoiceInfo[] { new OperatorVoiceInfo("Baka632", OperatorVoiceType.ChineseMandarin, voices) },
                                         new OperatorProfile[] { new OperatorProfile("???", OperatorProfileType.Unknown) });
             
@@ -45,24 +45,24 @@ namespace ArknightsResources.Operators.Models.Test
             OperatorVoiceLine[] voicesA = new OperatorVoiceLine[] { new OperatorVoiceLine("baka", "CN_001", "任命助理", "你好呀博士！", OperatorVoiceType.ChineseMandarin) };
 
             Operator opA = new("Baka632",
-                                        6,
                                         "baka",
+                                        6,
                                         OperatorGender.Male,
                                         new OperatorBirthday(5, 14),
                                         new OperatorClass(OperatorMainClass.Supporter, OperatorBranchClass.Summoner),
-                                        new OperatorIllustrationInfo[] { new OperatorIllustrationInfo("Traveler", "Travel for lights", "baka_travel", OperatorType.Skin, "Baka632") },
+                                        new OperatorIllustrationInfo[] { new OperatorIllustrationInfo(OperatorType.Skin, "Traveler", "Travel for lights", "baka_travel", "Baka632", null) },
                                         new OperatorVoiceInfo[] { new OperatorVoiceInfo("Baka632", OperatorVoiceType.ChineseMandarin, voicesA) },
                                         new OperatorProfile[] { new OperatorProfile("???", OperatorProfileType.Unknown) });
 
             OperatorVoiceLine[] voicesB = new OperatorVoiceLine[] { new OperatorVoiceLine("baka", "CN_001", "任命助理", "你好呀博士！",OperatorVoiceType.ChineseMandarin) };
 
             Operator opB = new("Baka632",
-                                        6,
                                         "baka",
+                                        6,
                                         OperatorGender.Male,
                                         new OperatorBirthday(5, 14),
                                         new OperatorClass(OperatorMainClass.Supporter, OperatorBranchClass.Summoner),
-                                        new OperatorIllustrationInfo[] { new OperatorIllustrationInfo("Traveler", "Travel for lights", "baka_travel", OperatorType.Skin, "Baka632") },
+                                        new OperatorIllustrationInfo[] { new OperatorIllustrationInfo(OperatorType.Skin, "Traveler", "Travel for lights", "baka_travel", "Baka632", null) },
                                         new OperatorVoiceInfo[] { new OperatorVoiceInfo("Baka632", OperatorVoiceType.ChineseMandarin, voicesB) },
                                         new OperatorProfile[] { new OperatorProfile("???", OperatorProfileType.Unknown) });
 
