@@ -25,17 +25,17 @@ namespace ArknightsResources.Operators.Models
         /// <param name="voices">干员配音信息</param>
         /// <param name="profiles">干员档案信息</param>
         [JsonConstructor]
-        public Operator(string name, int star, string codename, OperatorGender gender, OperatorBirthday? birthday, OperatorClass @class, OperatorIllustrationInfo[] illustrations, OperatorVoiceInfo[] voices, OperatorProfile[] profiles)
+        public Operator(string name, string codename, int star, OperatorGender gender, OperatorBirthday? birthday, OperatorClass @class, OperatorIllustrationInfo[] illustrations, OperatorVoiceInfo[] voices, OperatorProfile[] profiles)
         {
-            Name = name;
+            Name = name ?? throw new ArgumentNullException(nameof(name));
+            Codename = codename ?? throw new ArgumentNullException(nameof(codename));
             Star = star;
-            Codename = codename;
             Gender = gender;
             Birthday = birthday;
             Class = @class;
-            Illustrations = illustrations;
-            Voices = voices;
-            Profiles = profiles;
+            Illustrations = illustrations ?? throw new ArgumentNullException(nameof(illustrations));
+            Voices = voices ?? throw new ArgumentNullException(nameof(voices));
+            Profiles = profiles ?? throw new ArgumentNullException(nameof(profiles));
         }
 
         /// <summary>

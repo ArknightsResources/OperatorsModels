@@ -17,16 +17,23 @@ namespace ArknightsResources.Operators.Models
         /// <param name="imageCodename">立绘图片代号</param>
         /// <param name="type">立绘类型</param>
         /// <param name="illustrator">立绘画师</param>
+        /// <param name="designer">立绘原案</param>
         [JsonConstructor]
-        public OperatorIllustrationInfo(string illustrationName, string description, string imageCodename,
-                                        OperatorType type, string illustrator)
+        public OperatorIllustrationInfo(OperatorType type, string illustrationName, string description, string imageCodename,
+                                        string illustrator, string? designer)
         {
-            IllustrationName = illustrationName;
-            Description = description;
-            ImageCodename = imageCodename;
             Type = type;
-            Illustrator = illustrator;
+            IllustrationName = illustrationName ?? throw new ArgumentNullException(nameof(illustrationName));
+            Description = description ?? throw new ArgumentNullException(nameof(description));
+            ImageCodename = imageCodename ?? throw new ArgumentNullException(nameof(imageCodename));
+            Illustrator = illustrator ?? throw new ArgumentNullException(nameof(illustrator));
+            Designer = designer;
         }
+
+        /// <summary>
+        /// 此立绘的种类
+        /// </summary>
+        public OperatorType Type { get; }
 
         /// <summary>
         /// 立绘名称
@@ -44,14 +51,14 @@ namespace ArknightsResources.Operators.Models
         public string ImageCodename { get; }
 
         /// <summary>
-        /// 此立绘的种类
-        /// </summary>
-        public OperatorType Type { get; }
-
-        /// <summary>
         /// 立绘画师
         /// </summary>
         public string Illustrator { get; }
+
+        /// <summary>
+        /// 立绘原案
+        /// </summary>
+        public string? Designer { get; }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
@@ -66,7 +73,8 @@ namespace ArknightsResources.Operators.Models
                    Description == other.Description &&
                    ImageCodename == other.ImageCodename &&
                    Type == other.Type &&
-                   Illustrator == other.Illustrator;
+                   Illustrator == other.Illustrator &&
+                   Designer == other.Designer;
         }
 
         /// <inheritdoc/>
@@ -78,13 +86,14 @@ namespace ArknightsResources.Operators.Models
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(ImageCodename);
             hashCode = hashCode * -1521134295 + Type.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Illustrator);
+            hashCode = hashCode * -1521134295 + (Designer != null ? EqualityComparer<string>.Default.GetHashCode(Designer) : 0);
             return hashCode;
         }
 
         /// <inheritdoc/>
         public override string ToString()
         {
-            return $"Name:{IllustrationName};IllustType:{Type};IllustCodename:{ImageCodename};Illustrator:{Illustrator}";
+            return $"Name:{IllustrationName};IllustType:{Type};IllustCodename:{ImageCodename};Illustrator:{Illustrator};Designer:{Designer}";
         }
 
         /// <inheritdoc/>

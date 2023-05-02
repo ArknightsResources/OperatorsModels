@@ -21,9 +21,9 @@ namespace ArknightsResources.Operators.Models
         [JsonConstructor]
         public OperatorVoiceInfo(string cv, OperatorVoiceType type, OperatorVoiceLine[] voices)
         {
-            CV = cv;
+            CV = cv ?? throw new ArgumentNullException(nameof(cv));
             Type = type;
-            Voices = voices;
+            Voices = voices ?? throw new ArgumentNullException(nameof(voices));
         }
 
         /// <summary>

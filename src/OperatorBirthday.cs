@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Text.Json.Serialization;
 
 namespace ArknightsResources.Operators.Models
@@ -6,6 +7,7 @@ namespace ArknightsResources.Operators.Models
     /// <summary>
     /// 表示干员生日的结构
     /// </summary>
+    [StructLayout(LayoutKind.Sequential)]
     public readonly struct OperatorBirthday : IEquatable<OperatorBirthday>
     {
         /// <summary>
